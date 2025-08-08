@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<style>
+    body {
+            background: linear-gradient(135deg, #43cea2, #185a9d);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+        }
+    .success-container {
+        background:#fff;
+        max-width: 500px;
+        margin: 3rem auto;
+        padding: 2rem;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        animation: fadeInUp 0.8s ease-in-out;
+    }
+
+    .success-heading {
+        color: #27ae60;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        font-size: 1.8rem;
+    }
+
+    .success-message {
+        color: #555;
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .btn-home {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #27ae60;
+        color: #fff;
+        font-weight: 500;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: background 0.3s ease;
+    }
+
+    .btn-home:hover {
+        background: #1f8a4d;
+    }
+
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="success-container">
+    <h2 class="success-heading">Session Booked Successfully! ✅</h2>
+    <p class="success-message">You will receive an email with session details shortly.</p>
+    <a href="{% url 'index' %}" class="btn-home">Return to Home</a>
+</div>
+{% endblock %}
+

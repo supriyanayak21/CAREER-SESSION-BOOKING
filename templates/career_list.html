@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block title %}Careers{% endblock %}
+
+{% block content %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #6faeed;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #cbffcb;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .text-center {
+            text-align: center;
+            color: #2d7d2d;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .list-group {
+            
+            list-style: none;
+            padding: 0;
+        }
+        .list-group-item {
+            background-color: #b3dcb3;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #ddd;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .list-group-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #2d7d2d, #45a049);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            padding: 8px 16px;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #256b25, #3a8c3a);
+            transform: scale(1.1);
+        }
+        .btn-sm {
+            font-size: 14px;
+            padding: 6px 12px;
+        }
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+            .list-group-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .btn-primary {
+                width: 100%;
+                text-align: center;
+                margin-top: 10px;
+            }
+        }
+    </style>
+    <div class="container">
+        <h2 class="text-center">Available Careers</h2>
+        <ul class="list-group mt-3">
+            {% for career in careers %}
+                <li class="list-group-item">
+                    <div>
+                        <strong>{{ career.name }}</strong> - {{ career.description }}
+                    </div>
+                    <a href="{% url 'book_session' %}" class="btn btn-primary btn-sm">Book Session</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

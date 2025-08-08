@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Book a Session{% endblock %}
+{% block extra_css %}
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #74ABE2, #5563DE);
+    }
+
+    .heading {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+        color: #2c3e50;
+        animation: fadeInDown 0.8s ease-in-out;
+    }
+
+    .form-container {
+        background: #ffffff;
+        padding: 2rem;
+        border-radius: 15px;
+        max-width: 500px;
+        margin: 0 auto;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        animation: fadeInUp 0.8s ease-in-out;
+    }
+
+    .form-container p {
+        margin-bottom: 1rem;
+    }
+
+    .form-container input,
+    .form-container select,
+    .form-container textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        transition: all 0.3s ease;
+    }
+
+    .form-container input:focus,
+    .form-container select:focus,
+    .form-container textarea:focus {
+        border-color: #3498db;
+        box-shadow: 0 0 8px rgba(52,152,219,0.3);
+        outline: none;
+    }
+
+    .btn-primary {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background: #3498db;
+        border: none;
+        color: white;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        margin-top: 1rem;
+    }
+
+    .btn-primary:hover {
+        background: #2c80b4;
+    }
+
+    .btn-secondary {
+        display: inline-block;
+        margin: 1rem auto 0;
+        text-align: center;
+        padding: 10px 20px;
+        background: #95a5a6;
+        color: white;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        text-decoration: none;
+        transition: background 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+        background: #7f8c8d;
+    }
+
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+    <h2 class="heading">Book a Guidance Session</h2>
+
+    <form method="post" class="form-container">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-primary">Book Now</button>
+    </form>
+
+    <div style="text-align:center;">
+        <a href="{% url 'career_list' %}" class="btn-secondary">Back to Careers</a>
+    </div>
+{% endblock %}
+
+

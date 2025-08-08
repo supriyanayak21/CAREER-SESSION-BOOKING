@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ session.title }}</h2>
+<p><strong>Description:</strong> {{ session.description }}</p>
+<p><strong>Date:</strong> {{ session.date }}</p>
+<p><strong>Time:</strong> {{ session.time }}</p>
+<p><strong>Location:</strong> {{ session.location }}</p>
+<p><strong>Seats Available:</strong> {{ session.seats_available }}</p>
+{% endblock %}
